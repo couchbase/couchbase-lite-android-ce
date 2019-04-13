@@ -1,0 +1,1 @@
+couchbase-lite-android/gradlew
