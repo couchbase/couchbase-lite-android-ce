@@ -49,6 +49,7 @@ This is the container project for Couchbase Lite Android.  It assembles the subm
 1. `git clone --recursive https://github.com/couchbase/couchbase-lite-android-ce.git` to clone this repo and it's submodules
 1. Open couchbase-lite-android-ce in Android Studio,
 1. If necessary, install [CMake](https://stackoverflow.com/questions/41218241/unable-to-find-cmake-in-android-studio)
+1. To sync your repo with the origin, say: `git submodule update --recursive --remote`
 
 At this point it should build without errors.
 
