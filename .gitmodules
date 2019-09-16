@@ -2,15 +2,19 @@
 	path = couchbase-lite-android
 	url = https://github.com/couchbase/couchbase-lite-android
 	branch = master
+	master = master
 [submodule "couchbase-lite-build"]
 	path = couchbase-lite-build
 	url = https://github.com/couchbase/couchbase-lite-build.git
 	branch = master
+	master = master
 [submodule "couchbase-lite-core"]
 	path = couchbase-lite-core
 	url = https://github.com/couchbase/couchbase-lite-core.git
 	branch = master
+	master = master
 [submodule "couchbase-lite-java"]
 	path = couchbase-lite-java
 	url = https://github.com/couchbase/couchbase-lite-java.git
 	branch = master
+	master = master
