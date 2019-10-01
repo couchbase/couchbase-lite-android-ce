@@ -1,16 +1,18 @@
 
 # Couchbase Lite Android 2.x
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Build Status](https://travis-ci.org/couchbase/couchbase-lite-android.svg?branch=master)](https://travis-ci.org/couchbase/couchbase-lite-android)
-
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+<!--
+![Build Status](https://travis-ci.org/couchbase/couchbase-lite-android.svg?branch=master)](https://travis-ci.org/couchbase/couchbase-lite-android)
+-->
 **Couchbase Lite** is an embedded lightweight, document-oriented (NoSQL), syncable database engine.
 
 Couchbase Lite 2.x has a completely new set of APIs. The implementation is on top of [Couchbase Lite Core](https://github.com/couchbase/couchbase-lite-core), which is also a new cross-platform implementation of database CRUD and query features, as well as document versioning.
 
 ## Requirements
 
-- Android 4.4+ (API 19+)
-- Supported architectures: armeabi-v7a, arm64-v8a and x86
+- Android 5.1 (API 22+).  Support for 4.4 (API 19+) is deprecated.
+- Supported architectures: armeabi-v7a, arm64-v8a, x86 and x86_64
 - Android Studio 3.+
 
 ## Installation
@@ -25,7 +27,7 @@ Add the following in the dependencies section of the application's build.gradle 
 
 ```
 dependencies {
-    implementation 'com.couchbase.lite:couchbase-lite-android:2.5.0'
+    implementation 'com.couchbase.lite:couchbase-lite-android:2.6.0'
 }
 ```
 
@@ -34,7 +36,7 @@ dependencies {
 <dependency>
   <groupId>com.couchbase.lite</groupId>
   <artifactId>couchbase-lite-android</artifactId>
-  <version>2.0.0</version>
+  <version>2.6.0</version>
 </dependency>
 ```
 
@@ -49,9 +51,25 @@ This is the container project for Couchbase Lite Android.  It assembles the subm
 1. `git clone --recursive https://github.com/couchbase/couchbase-lite-android-ce.git` to clone this repo and it's submodules
 1. Open couchbase-lite-android-ce in Android Studio,
 1. If necessary, install [CMake](https://stackoverflow.com/questions/41218241/unable-to-find-cmake-in-android-studio)
-1. To sync your repo with the origin, say: `git submodule update --recursive --remote`
 
-At this point it should build without errors.
+At this point it should build without errors:
+
+`./gradlew assemble`
+
+The output aars will be in `.../couchbase-lite-android/lib/build/outputs/aar`
+
+## Syncing
+
+Syncing to the remote is non-trivial:
+
+1. Sync the top layer modules: `git submodule update --remote`
+1. Sync core: `cd couchbase-lite-core; git submodule update --recursive` (Note absence of the `--remote` flag)
+
+To re-create a specific release, check out the named release branch in this project and then use the instructions
+above to sync the repo.
+
+Note that this repo structure was created for release 2.6.x and cannot be used to create previous releases.
+To create older releases, look in the repo `couchbase/couchbase-lite-android`.
 
 ## Sample Apps
 
